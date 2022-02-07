@@ -5,9 +5,13 @@ var positions = []
 func _ready():
 	Network.connect("client_connected", self, "_on_new_client")
 	
-	# Load Map
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var n = rng.randi_range(0, 4)
+	var node = load("res://Scenes/Racing/Maps/Map{n}.tscn".format({"n": n}))
+	Global.instance_node_at_loc(node, $Background, Vector2(960, 540))
 	
-	positions = $Map/SpawnPositions.get_children()
+	positions = $Background/Map/SpawnPositions.get_children()
 	pass
 	
 func _on_new_client(id):
