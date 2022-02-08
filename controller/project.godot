@@ -11,13 +11,14 @@ config_version=4
 [application]
 
 config/name="PartyGamesController"
-run/main_scene="res://Scenes/Control.tscn"
+run/main_scene="res://Scenes/CarControl.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Network="*res://Scripts/Network.gd"
 PacketManager="*res://Scripts/PacketManager.gd"
+Global="*res://Scripts/Global.gd"
 
 [display]
 

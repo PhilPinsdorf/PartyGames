@@ -1,7 +1,6 @@
 extends Node
 
-signal participate_request
-signal received_username
+signal user_connected
 signal reflex_button_down
 signal reflex_button_up
 signal driving_button
@@ -17,15 +16,24 @@ func _process_incoming_packet(id, content):
 	# 100 - 109 => Initial Connection
 	# 110 - 119 => Reflexe Button
 	# 120 - 129 => Wheel Buttons
-	
-	print(obj["code"])
+
 	match int(obj["code"]):
 		100:
 			# Request to participate
-			emit_signal("participate_request")
+			# Checking participate requirements
+			if PlayerManager.user_count() < PlayerManager.MAX_PLAYERS:
+				send_packet_value(id, 200, true)
+				
 		101:
 			# Client sends Username
-			emit_signal("received_username")
+			var username = obj["value"]
+			var count = PlayerManager.user_count()
+			PlayerManager.add_user(id, username)
+			PlayerManager.add_user_random_color(id, count)
+			emit_signal("user_connected", username, count)
+			var color = Global.avalibleColors[count]
+			send_packet_value(id, 201, {"r": color.r,"g": color.g,"b": color.b})
+			
 		110:
 			# Reflex Button Down
 			emit_signal("reflex_button_down")
@@ -44,4 +52,14 @@ func _process_incoming_packet(id, content):
 		123:
 			# Driving Button Right Up
 			emit_signal("driving_button", id, 3)
-	pass
+
+func send_packet(id, code):
+	var dict = {}
+	dict["code"] = code
+	Network.send_packet(id, JSON.print(dict))
+
+func send_packet_value(id, code, value):
+	var dict = {}
+	dict["code"] = code
+	dict["value"] = value
+	Network.send_packet(id, JSON.print(dict))

@@ -1,7 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/Rowdies.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/Rowdies-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=9]
+size = 300
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.196078, 0.196078, 0.196078, 1 )
@@ -15,6 +21,12 @@ bg_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 
+[sub_resource type="DynamicFont" id=10]
+size = 300
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 
@@ -24,7 +36,7 @@ bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 
-[node name="Control" type="Control"]
+[node name="CarControl" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -38,7 +50,7 @@ margin_left = 50.0
 margin_top = 50.0
 margin_right = 935.0
 margin_bottom = -50.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 1 )
 custom_styles/disabled = SubResource( 5 )
@@ -56,7 +68,7 @@ margin_left = -935.0
 margin_top = 50.0
 margin_right = -50.0
 margin_bottom = -50.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = SubResource( 10 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )

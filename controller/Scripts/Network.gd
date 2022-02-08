@@ -1,6 +1,8 @@
 extends Node
 
-	# The URL we will connect to
+signal received_packet
+
+# The URL we will connect to
 export var websocket_url = "ws://192.168.178.108:28960"
 
 # Our WebSocketClient instance
@@ -24,13 +26,14 @@ func _closed(was_clean = false):
 
 func _connected(proto = ""):
 	print("Connected with protocol: ", proto)
-	# _client.get_peer(1).put_packet()
 
 func send_packet(var packet):
 	_client.get_peer(1).put_packet(packet.to_utf8())
 	
 func _on_data():
-	print("Got data from server: ", _client.get_peer(1).get_packet().get_string_from_utf8())
+	var pkt = _client.get_peer(1).get_packet()
+	print("Received Packet %s from Server" % pkt.get_string_from_utf8())
+	emit_signal("received_packet", pkt.get_string_from_utf8())
 
 func _process(delta):
 	_client.poll()
