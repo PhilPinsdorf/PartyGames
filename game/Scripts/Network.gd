@@ -6,7 +6,6 @@ signal received_packet
 
 # Constants
 const DEFAULT_PORT = 28960
-const MAX_CLIENTS = 6
 
 # Variables
 var _server = WebSocketServer.new()

@@ -35,3 +35,5 @@ func _on_StartGame_pressed():
 	
 func _user_connected(username, count):
 	name_lables[count].text = username
+	if PlayerManager.user_count() >= PlayerManager.MIN_START_PLAYERS:
+		start_game_button.disabled = false

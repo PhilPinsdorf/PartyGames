@@ -32,7 +32,7 @@ func _process_incoming_packet(id, content):
 			PlayerManager.add_user_random_color(id, count)
 			emit_signal("user_connected", username, count)
 			var color = Global.avalibleColors[count]
-			send_packet_value(id, 201, {"r": color.r,"g": color.g,"b": color.b})
+			send_packet_value(id, 201, {"r": color.r, "g": color.g, "b": color.b})
 			
 		110:
 			# Reflex Button Down

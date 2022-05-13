@@ -1,6 +1,7 @@
 extends Node
 
 const MAX_PLAYERS = 4
+const MIN_START_PLAYERS = 2
 
 var user_id_assignment = {}
 var id_color_assignment = {}
