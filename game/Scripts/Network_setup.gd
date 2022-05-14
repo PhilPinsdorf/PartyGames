@@ -32,7 +32,7 @@ func _on_CreateServer_pressed():
 		Network.create_server()
 
 func _on_StartGame_pressed():
-	GameManager.start_next_game()
+	GameManager.start_ingame_state()
 	
 func _update_lobby():
 	print("Should Update")

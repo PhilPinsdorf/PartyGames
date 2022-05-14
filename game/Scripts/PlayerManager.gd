@@ -6,30 +6,30 @@ const MIN_START_PLAYERS = 1
 var avalibleSpots = [0, 1, 2, 3]
 var user_ids = []
 var id_spot_assignment = {}
-var id_user_assignment = {}
-var id_color_assignment = {}
+var id_user_assignment = {"a": "Phil", "b": "Lion", "c": "Lukas", "d": "Oli"}
+var id_color_assignment = {"a": Global.colorBlue, "b": Global.colorRed, "c": Global.colorGreen, "d": Global.colorYellow}
 
 func add_user(id, username):
 	var spot = avalibleSpots[0]
 	avalibleSpots.remove(0)
-	id_spot_assignment[id] = spot
+	id_spot_assignment[str(id)] = spot
 	
-	user_ids.append(id)
-	id_user_assignment[id] = username
+	user_ids.append(str(id))
+	id_user_assignment[str(id)] = username
 	
 	var color = Global.avalibleColors[spot]
-	id_color_assignment[id] = color
+	id_color_assignment[str(id)] = color
 	
 	return spot
 
 func remove_user(id):
-	if user_ids.has(id):
-		var spot = id_spot_assignment[id]
+	if user_ids.has(str(id)):
+		var spot = id_spot_assignment[str(id)]
 		avalibleSpots.push_front(spot)
-		id_spot_assignment.erase(id)
-		id_color_assignment.erase(id)
-		user_ids.erase(id)
-		id_user_assignment.erase(id)
+		id_spot_assignment.erase(str(id))
+		id_color_assignment.erase(str(id))
+		user_ids.erase(str(id))
+		id_user_assignment.erase(str(id))
 
 func user_count():
 	return user_ids.size()

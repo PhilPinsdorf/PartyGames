@@ -44,7 +44,7 @@ func _on_data(id):
 	emit_signal("received_packet", id, pkt.get_string_from_utf8())
 
 func send_packet(id, content):
-	_server.get_peer(id).put_packet(content.to_utf8())
+	_server.get_peer(int(id)).put_packet(content.to_utf8())
 
 func _process(delta):
 	_server.poll()

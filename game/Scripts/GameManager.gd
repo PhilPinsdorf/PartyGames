@@ -3,27 +3,39 @@ extends Node
 enum GameState {LOBBY, INGAME, ENDED}
 enum ControlerType {RACING = PacketManager.Packet.CHANGE_TO_DRIVING, REFLEX = PacketManager.Packet.CHANGE_TO_REFLEX}
 
-var car_module = GameModule.new("Racing", "res://Scenes/Racing/Racing.tscn", ControlerType.RACING)
+const games_to_play = 1
 
-var scores = {}
+var car_module = GameModule.new("Racing", "res://Scenes/Games/Racing/Racing.tscn", ControlerType.RACING)
+
+var scores = {"a": 1, "b": 5, "c": 3, "d": 3}
 var all_games = [car_module]
 var game_queue = []
 
 func _ready():
 	pass
+	
+func start_ingame_state():
+	for id in PlayerManager.user_ids:
+		scores[id] = 0
+	
+	choose_games(games_to_play)
+	
+	start_next_game()
+	pass
 
 func start_next_game():
-	choose_games(1)
-	
 	# Change Scene
 	get_tree().change_scene(game_queue[0].get_scene())
 	
 	# Update Controller on Client Side
 	for id in PlayerManager.user_ids:
 		PacketManager.send_packet(id, game_queue[0].get_controler_type())
+	
+	game_queue.remove(0)
 	pass
 
-func finish_game():
+func finish_game(winner):
+	scores[winner] += 1
 	pass
 
 func choose_game():
