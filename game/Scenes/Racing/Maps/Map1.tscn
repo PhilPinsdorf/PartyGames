@@ -19,9 +19,17 @@ polygon = PoolVector2Array( 59, -168, 72, -207, 86, -259, 99, -291, 123, -317, 1
 [node name="SpawnPositions" type="Node2D" parent="."]
 
 [node name="Pos0" type="Position2D" parent="SpawnPositions"]
-position = Vector2( -138, 382 )
+position = Vector2( -156, 370 )
 rotation = 3.14159
 
 [node name="Pos1" type="Position2D" parent="SpawnPositions"]
-position = Vector2( -136, 449 )
+position = Vector2( -154, 437 )
+rotation = 3.14159
+
+[node name="Pos2" type="Position2D" parent="SpawnPositions"]
+position = Vector2( -154, 403 )
+rotation = 3.14159
+
+[node name="Pos3" type="Position2D" parent="SpawnPositions"]
+position = Vector2( -152, 470 )
 rotation = 3.14159

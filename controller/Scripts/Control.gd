@@ -1,6 +1,8 @@
 extends Control
 
 func _ready():
+	$Background.self_modulate = Global.color
+	update()
 	pass
 
 func _on_Left_button_down():

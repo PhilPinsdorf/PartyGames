@@ -20,6 +20,7 @@ Global="*res://Scripts/Global.gd"
 Network="*res://Scripts/Network.gd"
 PacketManager="*res://Scripts/PacketManager.gd"
 PlayerManager="*res://Scripts/PlayerManager.gd"
+GameManager="*res://Scripts/GameManager.gd"
 
 [display]
 

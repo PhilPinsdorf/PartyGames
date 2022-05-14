@@ -1,24 +1,39 @@
 extends Node
 
 const MAX_PLAYERS = 4
-const MIN_START_PLAYERS = 2
+const MIN_START_PLAYERS = 1
 
-var user_id_assignment = {}
+var avalibleSpots = [0, 1, 2, 3]
+var user_ids = []
+var id_spot_assignment = {}
+var id_user_assignment = {}
 var id_color_assignment = {}
 
 func add_user(id, username):
-	user_id_assignment[id] = username
-
-func add_user_random_color(id, count):
-	var color = Global.avalibleColors[count]
+	var spot = avalibleSpots[0]
+	avalibleSpots.remove(0)
+	id_spot_assignment[id] = spot
+	
+	user_ids.append(id)
+	id_user_assignment[id] = username
+	
+	var color = Global.avalibleColors[spot]
 	id_color_assignment[id] = color
+	
+	return spot
 
 func remove_user(id):
-	user_id_assignment[id] = null
-	
+	if user_ids.has(id):
+		var spot = id_spot_assignment[id]
+		avalibleSpots.push_front(spot)
+		id_spot_assignment.erase(id)
+		id_color_assignment.erase(id)
+		user_ids.erase(id)
+		id_user_assignment.erase(id)
+
 func user_count():
-	return user_id_assignment.size()
-	
+	return user_ids.size()
+
 func get_color_id(id):
 	return id_color_assignment[id]
 

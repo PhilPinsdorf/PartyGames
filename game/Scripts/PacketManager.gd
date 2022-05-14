@@ -1,9 +1,11 @@
 extends Node
 
-signal user_connected
+signal update_lobby
 signal reflex_button_down
 signal reflex_button_up
 signal driving_button
+
+enum Packet {PARTICIPATE_RESPONSE = 200, COLOR_RESPONSE = 201, CHANGE_TO_REFLEX = 210, CHANGE_TO_DRIVING = 220}
 
 func _ready():
 	Network.connect("received_packet", self, "_process_incoming_packet")
@@ -21,18 +23,15 @@ func _process_incoming_packet(id, content):
 		100:
 			# Request to participate
 			# Checking participate requirements
-			if PlayerManager.user_count() < PlayerManager.MAX_PLAYERS:
-				send_packet_value(id, 200, true)
-				
+			send_packet_value(id, Packet.PARTICIPATE_RESPONSE, (PlayerManager.user_count() < PlayerManager.MAX_PLAYERS))
+			
 		101:
 			# Client sends Username
 			var username = obj["value"]
-			var count = PlayerManager.user_count()
-			PlayerManager.add_user(id, username)
-			PlayerManager.add_user_random_color(id, count)
-			emit_signal("user_connected", username, count)
-			var color = Global.avalibleColors[count]
-			send_packet_value(id, 201, {"r": color.r, "g": color.g, "b": color.b})
+			var spot = PlayerManager.add_user(id, username)
+			emit_signal("update_lobby")
+			var color = Global.avalibleColors[spot]
+			send_packet_value(id, Packet.COLOR_RESPONSE, {"r": color.r, "g": color.g, "b": color.b})
 			
 		110:
 			# Reflex Button Down

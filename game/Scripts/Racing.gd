@@ -1,23 +1,51 @@
 extends Node2D
 
 var positions = []
+var reached_checkpoints = {}
+var finished_laps = {}
 
 func _ready():
 	Network.connect("client_connected", self, "_on_new_client")
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var n = rng.randi_range(0, 4)
-	var node = load("res://Scenes/Racing/Maps/Map{n}.tscn".format({"n": n}))
-	Global.instance_node_at_loc(node, $Background, Vector2(960, 540))
+	var n = rng.randi_range(0, 0)
+	var track = load("res://Scenes/Racing/Maps/Map{n}.tscn".format({"n": n}))
+	Global.instance_node_at_loc(track, $Background, Vector2(960, 540))
 	
 	positions = $Background/Map/SpawnPositions.get_children()
-	pass
 	
-func _on_new_client(id):
-	var node = preload("res://Scenes/Racing/Car.tscn")
-	var pos = positions[0].global_position
-	var rot = positions[0].global_rotation
-	Global.instance_node_at_loc_rot_name(node, self, pos, rot, str(id))
-	positions.remove(0)
-	pass
+	var car = preload("res://Scenes/Racing/Car.tscn")
+	for id in PlayerManager.user_ids:
+		# Spawn player
+		var pos = positions[0].global_position
+		var rot = positions[0].global_rotation
+		var spot = PlayerManager.id_spot_assignment[id]
+		Global.instance_node_at_loc_rot_name_color(car, self, pos, rot, str(id), spot)
+		positions.remove(0)
+	
+	$Background/Map/Checkpoints/checkpoint0.connect("body_shape_exited", self, "_reached_checkpoint", [0])
+	$Background/Map/Checkpoints/checkpoint1.connect("body_shape_exited", self, "_reached_checkpoint", [1])
+	$Background/Map/Checkpoints/checkpoint2.connect("body_shape_exited", self, "_reached_checkpoint", [2])
+	$Background/Map/Checkpoints/checkpoint3.connect("body_shape_exited", self, "_reached_checkpoint", [3])
+	
+	for id in PlayerManager.user_ids:
+		reached_checkpoints[str(id)] = -1
+		finished_laps[str(id)] = 0
+
+
+func _reached_checkpoint(body_rid, body, body_shape_index, local_shape_index, cpid):
+	var id = str(body.name)
+	
+	if cpid != (reached_checkpoints[id] + 1): return
+	reached_checkpoints[id] = cpid
+	print("Car " + str(id) + " reached checkpoint " + str(cpid) + "!")
+		
+	if cpid == 3:
+		finished_laps[id] += 1
+		reached_checkpoints[id] = -1
+		print("Finished Lap!")
+		
+	if finished_laps[id] == 3:
+		print("Finished Game!")
+	

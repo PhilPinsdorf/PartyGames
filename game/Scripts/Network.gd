@@ -3,6 +3,7 @@ extends Node
 # Signals
 signal client_connected
 signal received_packet
+signal update_lobby
 
 # Constants
 const DEFAULT_PORT = 28960
@@ -33,11 +34,13 @@ func _close_request(id, code, reason):
 	print("Client %d disconnecting with code: %d, reason: %s" % [id, code, reason])
 
 func _disconnected(id, was_clean = false):
-	print("Client %d disconnected, clean: %s" % [id, str(was_clean)])
+	PlayerManager.remove_user(id)
+	emit_signal("update_lobby") 
+	print("Client %d disconnected, clean: %s" % [id, str(was_clean)]) 
 
 func _on_data(id):
 	var pkt = _server.get_peer(id).get_packet()
-	print("Received Packet %s for id=%10d" % [pkt.get_string_from_utf8(), id])
+	print("Received Packet " + pkt.get_string_from_utf8() + " for id=" + str(id))
 	emit_signal("received_packet", id, pkt.get_string_from_utf8())
 
 func send_packet(id, content):

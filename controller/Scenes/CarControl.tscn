@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Rowdies-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 300
@@ -40,11 +43,13 @@ bg_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Left" type="Button" parent="."]
+[node name="Background" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="Left" type="Button" parent="Background"]
 anchor_bottom = 1.0
 margin_left = 50.0
 margin_top = 50.0
@@ -60,7 +65,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Right" type="Button" parent="."]
+[node name="Right" type="Button" parent="Background"]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -73,11 +78,8 @@ custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 text = "R"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[connection signal="button_down" from="Left" to="." method="_on_Left_button_down"]
-[connection signal="button_up" from="Left" to="." method="_on_Left_button_up"]
-[connection signal="button_down" from="Right" to="." method="_on_Right_button_down"]
-[connection signal="button_up" from="Right" to="." method="_on_Right_button_up"]
+[connection signal="button_down" from="Background/Left" to="." method="_on_Left_button_down"]
+[connection signal="button_up" from="Background/Left" to="." method="_on_Left_button_up"]
+[connection signal="button_down" from="Background/Right" to="." method="_on_Right_button_down"]
+[connection signal="button_up" from="Background/Right" to="." method="_on_Right_button_up"]

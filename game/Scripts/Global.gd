@@ -6,6 +6,14 @@ const colorYellow = Color8(255, 255, 80)
 const colorGreen = Color8(80, 255, 80)
 const avalibleColors = [colorRed, colorBlue, colorYellow, colorGreen]
 
+func instance_node_at_loc_rot_name_color(node: Object, parent: Object, location: Vector2, rotation: float, newname: String, spot: int) -> Object:
+	var node_instance = instance_node(node, parent)
+	node_instance.global_position = location
+	node_instance.global_rotation = rotation
+	node_instance.name = newname
+	node_instance.modulate = avalibleColors[spot]
+	return node_instance
+
 func instance_node_at_loc_rot_name(node: Object, parent: Object, location: Vector2, rotation: float, newname: String) -> Object:
 	var node_instance = instance_node(node, parent)
 	node_instance.global_position = location

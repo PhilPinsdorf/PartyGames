@@ -9,7 +9,8 @@ onready var server_created_lable = $Background/ServerStarted/ServerCreated
 onready var start_game_button = $Background/ServerStarted/StartGame
 
 func _ready():
-	PacketManager.connect("user_connected", self, "_user_connected")
+	PacketManager.connect("update_lobby", self, "_update_lobby")
+	Network.connect("update_lobby", self, "_update_lobby")
 	
 	server_started_parent.hide()
 	$Background/ServerStarted/UsernameBackground/BgRed.self_modulate = Global.colorRed
@@ -31,9 +32,18 @@ func _on_CreateServer_pressed():
 		Network.create_server()
 
 func _on_StartGame_pressed():
-	get_tree().change_scene("res://Scenes/Racing/Racing.tscn")
+	GameManager.start_next_game()
 	
-func _user_connected(username, count):
-	name_lables[count].text = username
+func _update_lobby():
+	print("Should Update")
+	
+	for nl in name_lables:
+		nl.text = ""
+		
+	for id in PlayerManager.user_ids:
+		var spot = PlayerManager.id_spot_assignment[id]
+		var username = PlayerManager.id_user_assignment[id]
+		name_lables[spot].text = username
+		
 	if PlayerManager.user_count() >= PlayerManager.MIN_START_PLAYERS:
 		start_game_button.disabled = false

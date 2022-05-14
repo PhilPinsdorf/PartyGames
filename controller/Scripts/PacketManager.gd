@@ -30,6 +30,13 @@ func _process_incoming_packet(content):
 			print(color)
 			Global.color = color
 			emit_signal("update_color")
+			
+		210:
+			# Switch to Reflex Button
+			return
+		220:
+			# Switch to Driving Buttons
+			get_tree().change_scene("res://Scenes/CarControl.tscn")
 
 func send_packet(code):
 	var dict = {}
