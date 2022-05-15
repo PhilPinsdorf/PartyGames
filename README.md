@@ -1,5 +1,5 @@
 # PartyGames
-## Games
+## Mini-Games
 - [x] Racing
 - [ ] Timer
 - [ ] Tanks
