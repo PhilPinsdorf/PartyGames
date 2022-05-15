@@ -5,6 +5,13 @@ var silver = Color("#c0c0c0")
 var bronze = Color("#bf8970")
 
 func _ready():
+	var label_text
+	if GameManager.game_queue.size() > 0:
+		label_text = "Current Leaderboard"
+	else:
+		label_text = "Final Leaderboard"
+	$Background/Title.set_text(label_text)
+	
 	var player_scores : Dictionary = GameManager.scores.duplicate(true)
 	var scores = player_scores.values()
 	scores.sort()
@@ -26,10 +33,11 @@ func _ready():
 		var node = get_node("Places/{n}".format({"n": num}))
 		var number_node = node.get_node("Number")
 		var username_node = node.get_node("Username")
-		# var score_node = node.get_node("Score")
+		var score_node = node.get_node("Score")
+		
 		var number = numbering[0]
 		numbering.remove(0)
-		number_node.set_text(str(number) + ". ")
+		number_node.set_text(str(number) + ".")
 		
 		match number:
 			1: number_node.add_color_override("font_color", gold)
@@ -43,6 +51,7 @@ func _ready():
 				var color = PlayerManager.id_color_assignment[id]
 				username_node.set_text(username)
 				username_node.add_color_override("font_color", color)
+				score_node.set_text(str(score))
 				player_scores.erase(id)
 				break 
 	pass

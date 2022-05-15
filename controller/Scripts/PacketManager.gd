@@ -33,7 +33,7 @@ func _process_incoming_packet(content):
 			
 		210:
 			# Switch to Reflex Button
-			return
+			get_tree().change_scene("res://Scenes/ReflexControl.tscn")
 		220:
 			# Switch to Driving Buttons
 			get_tree().change_scene("res://Scenes/CarControl.tscn")

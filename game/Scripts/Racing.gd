@@ -6,7 +6,6 @@ var finished_laps = {}
 var blacklist = ["OuterBorder", "InnerBorder", "InnerCollider", "OuterCollider"]
 
 func _ready():
-	Network.connect("client_connected", self, "_on_new_client")
 	$Countdown/Control/Text.connect("timer_finished", self, "_on_timer_finished")
 	
 	var rng = RandomNumberGenerator.new()

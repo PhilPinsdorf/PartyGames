@@ -1,9 +1,7 @@
 extends Node
 
 signal update_lobby
-signal reflex_button_down
-signal reflex_button_up
-signal driving_button
+signal button_pressed
 
 enum Packet {PARTICIPATE_RESPONSE = 200, COLOR_RESPONSE = 201, CHANGE_TO_REFLEX = 210, CHANGE_TO_DRIVING = 220}
 
@@ -35,22 +33,22 @@ func _process_incoming_packet(id, content):
 			
 		110:
 			# Reflex Button Down
-			emit_signal("reflex_button_down")
+			emit_signal("button_pressed", id, 0)
 		111:
 			# Reflex Button Up
-			emit_signal("reflex_button_up")
+			emit_signal("button_pressed", id, 1)
 		120:
 			# Driving Button Left Down
-			emit_signal("driving_button", id, 0)
+			emit_signal("button_pressed", id, 0)
 		121:
 			# Driving Button Left Up
-			emit_signal("driving_button", id, 1)
+			emit_signal("button_pressed", id, 1)
 		122:
 			# Driving Button Right Down
-			emit_signal("driving_button", id, 2)
+			emit_signal("button_pressed", id, 2)
 		123:
 			# Driving Button Right Up
-			emit_signal("driving_button", id, 3)
+			emit_signal("button_pressed", id, 3)
 
 func send_packet(id, code):
 	var dict = {}

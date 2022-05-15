@@ -6,8 +6,8 @@ const MIN_START_PLAYERS = 1
 var avalibleSpots = [0, 1, 2, 3]
 var user_ids = []
 var id_spot_assignment = {}
-var id_user_assignment = {"a": "Phil", "b": "Lion", "c": "Lukas", "d": "Oli"}
-var id_color_assignment = {"a": Global.colorBlue, "b": Global.colorRed, "c": Global.colorGreen, "d": Global.colorYellow}
+var id_user_assignment = {}
+var id_color_assignment = {}
 
 func add_user(id, username):
 	var spot = avalibleSpots[0]

@@ -6,7 +6,7 @@ var accelerration = Vector2(speed, 0)
 var started = false
 
 func _ready():
-	PacketManager.connect("driving_button", self, "_on_button_action")
+	PacketManager.connect("button_pressed", self, "_on_button_action")
 	pass 
 
 func _process(delta):

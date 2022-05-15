@@ -21,6 +21,7 @@ Network="*res://Scripts/Network.gd"
 PacketManager="*res://Scripts/PacketManager.gd"
 PlayerManager="*res://Scripts/PlayerManager.gd"
 GameManager="*res://Scripts/GameManager.gd"
+Utils="*res://Scripts/Utils.gd"
 
 [display]
 
