@@ -25,3 +25,5 @@
 ### 200s (Server to Client)
 - 200 => Participate Response
 - 201 => Receive Color
+- 210 => Change Controller to Reflex Button
+- 220 => Change Controller to Driving Buttons
