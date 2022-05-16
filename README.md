@@ -1,12 +1,16 @@
 # PartyGames
 ## Mini-Games
 - [x] Racing
-- [ ] Timer
+- [x] Timer
 - [ ] Tanks
 - [ ] Spaceships
 - [ ] Stack Tower
 - [ ] Reflex Circle
 - [ ] Sprint
+
+## TO-DO
+- Let multiple people win
+- Update Graphics to 3D
 
 ## Protokoll Dokumentation
 ### 100s (Client to Server)
