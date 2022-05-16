@@ -1,4 +1,13 @@
 # PartyGames
+## Mini-Games
+- [x] Racing
+- [ ] Timer
+- [ ] Tanks
+- [ ] Spaceships
+- [ ] Stack Tower
+- [ ] Reflex Circle
+- [ ] Sprint
+
 ## Protokoll Dokumentation
 ### 100s (Client to Server)
 - 100 => Request to Participate, Sending back response
