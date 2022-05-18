@@ -16,12 +16,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Scripts/Global.gd"
-Network="*res://Scripts/Network.gd"
-PacketManager="*res://Scripts/PacketManager.gd"
-PlayerManager="*res://Scripts/PlayerManager.gd"
-GameManager="*res://Scripts/GameManager.gd"
-Utils="*res://Scripts/Utils.gd"
+Global="*res://Scripts/Global/Global.gd"
+Network="*res://Scripts/Global/Network.gd"
+PacketManager="*res://Scripts/Global/PacketManager.gd"
+PlayerManager="*res://Scripts/Global/PlayerManager.gd"
+GameManager="*res://Scripts/Global/GameManager.gd"
+Utils="*res://Scripts/Global/Utils.gd"
 
 [display]
 

@@ -3,14 +3,15 @@ extends Node
 enum GameState {LOBBY, INGAME, ENDED}
 enum ControlerType {RACING = PacketManager.Packet.CHANGE_TO_DRIVING, REFLEX = PacketManager.Packet.CHANGE_TO_REFLEX}
 
-const games_to_play = 2
+const games_to_play = 3
 
 var car_module = GameModule.new("Racing", "res://Scenes/Games/Racing/Racing.tscn", ControlerType.RACING)
 var reflex_circle_module = GameModule.new("Reflex Circle", "res://Scenes/Games/ReflexCircle/ReflexCircle.tscn", ControlerType.REFLEX)
 var evaluate_time_module = GameModule.new("Evaluate Time", "res://Scenes/Games/Timer/EvaluateTime.tscn", ControlerType.REFLEX)
+var stack_tower_module = GameModule.new("Stack Tower", "res://Scenes/Games/StackTower/StackTower.tscn", ControlerType.REFLEX)
 
 var scores = {}
-var all_games = [evaluate_time_module, car_module]
+var all_games = [car_module, reflex_circle_module, evaluate_time_module, stack_tower_module]
 var game_queue = []
 
 func _ready():
@@ -20,7 +21,7 @@ func start_ingame_state():
 	for id in PlayerManager.user_ids:
 		scores[str(id)] = 0
 	
-	choose_games(games_to_play)
+	choose_games()
 	
 	start_next_game()
 	pass
@@ -56,8 +57,8 @@ func choose_game():
 	game_queue.append(all_games[0])
 	all_games.remove(0)
 
-func choose_games(quantity):
-	for i in range(quantity):
+func choose_games():
+	for i in games_to_play:
 		choose_game()
 
 class GameModule:

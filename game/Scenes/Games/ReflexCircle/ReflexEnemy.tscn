@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/ReflexCircle/Enemy.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Games/ReflexCircle/Attacks/SemiCircleAttack.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Games/ReflexCircle/DrawSemiCircle.gd" type="Script" id=3]
 
 [node name="ReflexEnemy" type="Node2D"]
 

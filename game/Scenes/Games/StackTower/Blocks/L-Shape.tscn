@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Stacking Tower/2x2-l.png" type="Texture" id=1]
+
+[node name="L-Shape" type="RigidBody2D"]
+mass = 0.1
+gravity_scale = 4.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, -5, 0, -64, 0, -68, -1, -71, -3, -74, -6, -76, -11, -77, -66, -77, -70, -76, -74, -74, -76, -71, -77, -67, -77, 65, -76, 70, -74, 73, -70, 76, -65, 77, 67, 77, 71, 76, 75, 73, 77, 69, 77, 11, 76, 7, 74, 4, 70, 1, 67, 0, 6, 0, 4, 0, 2, -1, 0, -3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 1 )

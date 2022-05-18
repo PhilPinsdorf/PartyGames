@@ -12,10 +12,6 @@ func _ready():
 func _process_incoming_packet(id, content):
 	var json = JSON.parse(content)
 	var obj = json.result
-	
-	# 100 - 109 => Initial Connection
-	# 110 - 119 => Reflexe Button
-	# 120 - 129 => Wheel Buttons
 
 	match int(obj["code"]):
 		100:

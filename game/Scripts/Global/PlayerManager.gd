@@ -37,3 +37,9 @@ func user_count():
 func get_color_id(id):
 	return id_color_assignment[id]
 
+func get_id_from_spot(spot):
+	for key in id_spot_assignment.keys():
+		if id_spot_assignment[key] == spot:
+			return key
+	return null
+
