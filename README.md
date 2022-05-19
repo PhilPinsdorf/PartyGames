@@ -7,6 +7,7 @@
 - [ ] Stack Tower
 - [ ] Reflex Circle
 - [ ] Sprint
+- [ ] Hot Potato
 
 ## TO-DO
 - Let multiple people win
