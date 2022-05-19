@@ -20,14 +20,26 @@ Network="*res://Scripts/Network.gd"
 PacketManager="*res://Scripts/PacketManager.gd"
 Global="*res://Scripts/Global.gd"
 
+[debug]
+
+multirun/number_of_windows=4
+multirun/window_distance=1270
+multirun/add_custom_args=true
+multirun/first_window_args=""
+multirun/other_window_args=""
+
 [display]
 
 window/size/width=1920
 window/size/height=1080
-window/size/test_width=1280
-window/size/test_height=720
+window/size/test_width=960
+window/size/test_height=540
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/multirun/plugin.cfg" )
 
 [physics]
 

@@ -4,6 +4,7 @@ var positions = []
 
 func _ready():
 	positions = $SpawnPositions.get_children()
+	print(positions)
 	
 	var player = preload("res://Scenes/Games/ReflexCircle/CirclePlayer.tscn")
 	for id in PlayerManager.user_ids:

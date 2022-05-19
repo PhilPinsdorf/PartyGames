@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/Rowdies-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scripts/Leaderboard.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/UI/Leaderboard.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/Rowdies.tres" type="DynamicFont" id=3]
 
 [sub_resource type="DynamicFont" id=1]
