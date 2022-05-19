@@ -14,6 +14,9 @@
 - Update Graphics
 - Player can win point for scoreboard or take a benifit he can play against another player later in the prozess 
 
+## Important Commands
+- netsh advfirewall firewall add rule name="ALLOW PARTYGAMES PORT" dir=in action=allow protocol=TCP localport=28960
+
 ## Protokoll Dokumentation
 ### 100s (Client to Server)
 - 100 => Request to Participate, Sending back response
