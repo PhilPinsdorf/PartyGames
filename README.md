@@ -11,7 +11,8 @@
 
 ## TO-DO
 - Let multiple people win
-- Update Graphics to 3D
+- Update Graphics
+- Player can win point for scoreboard or take a benifit he can play against another player later in the prozess 
 
 ## Protokoll Dokumentation
 ### 100s (Client to Server)
