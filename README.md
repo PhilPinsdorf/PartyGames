@@ -4,8 +4,8 @@
 - [x] Timer
 - [ ] Tanks
 - [ ] Spaceships
-- [ ] Stack Tower
-- [ ] Reflex Circle
+- [x] Stack Tower
+- [x] Reflex Circle
 - [ ] Sprint
 - [ ] Hot Potato
 
