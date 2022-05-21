@@ -4,15 +4,19 @@
 - [x] Timer
 - [ ] Tanks
 - [ ] Spaceships
-- [ ] Stack Tower
-- [ ] Reflex Circle
+- [x] Stack Tower
+- [x] Reflex Circle
 - [ ] Sprint
 - [ ] Hot Potato
 - [ ] Hidden in Plain Sight
 
 ## TO-DO
 - Let multiple people win
-- Update Graphics to 3D
+- Update Graphics
+- Player can win point for scoreboard or take a benifit he can play against another player later in the prozess 
+
+## Important notes for later
+- netsh advfirewall firewall add rule name="ALLOW PARTYGAMES PORT" dir=in action=allow protocol=TCP localport=28960 (From [Link](https://techexpert.tips/de/windows-de/windows-oeffnen-eines-ports-auf-der-firewall-mithilfe-der-befehlszeile/) for Installer later)
 
 ## Protokoll Dokumentation
 ### 100s (Client to Server)
