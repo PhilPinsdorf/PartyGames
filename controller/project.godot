@@ -22,9 +22,9 @@ Global="*res://Scripts/Global.gd"
 
 [debug]
 
-multirun/number_of_windows=4
-multirun/window_distance=1270
-multirun/add_custom_args=true
+multirun/number_of_windows=2
+multirun/window_distance=100
+multirun/add_custom_args=false
 multirun/first_window_args=""
 multirun/other_window_args=""
 

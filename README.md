@@ -8,6 +8,7 @@
 - [ ] Reflex Circle
 - [ ] Sprint
 - [ ] Hot Potato
+- [ ] Hidden in Plain Sight
 
 ## TO-DO
 - Let multiple people win

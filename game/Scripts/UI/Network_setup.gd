@@ -1,6 +1,7 @@
 extends Control
 
 var name_lables = []
+var server_name = ""
 
 onready var start_server_parent = $Background/StartServer
 onready var server_started_parent = $Background/ServerStarted
@@ -28,15 +29,16 @@ func _on_CreateServer_pressed():
 		start_server_parent.hide()
 		server_started_parent.show()
 		server_created_lable.text = "Server \"" + server_name_edit.text + "\" Created!"
+		Network.server_name = server_name_edit.text
 		start_game_button.disabled = true
 		Network.create_server()
+		# $ServerAdvertiser.start_broadcast()
 
 func _on_StartGame_pressed():
 	GameManager.start_ingame_state()
+	# $ServerAdvertiser.stop_broadcast()
 	
 func _update_lobby():
-	print("Should Update")
-	
 	for nl in name_lables:
 		nl.text = ""
 		

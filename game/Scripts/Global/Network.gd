@@ -10,6 +10,7 @@ const DEFAULT_PORT = 28960
 
 # Variables
 var _server = WebSocketServer.new()
+var server_name
 
 func _ready() -> void:
 	# Connect Methods
@@ -17,7 +18,6 @@ func _ready() -> void:
 	_server.connect("client_disconnected", self, "_disconnected")
 	_server.connect("client_close_request", self, "_close_request")
 	_server.connect("data_received", self, "_on_data")
-	# _server.bind_ip = "192.168.178.108"
 
 func create_server():
 	# Start listening on the given port.

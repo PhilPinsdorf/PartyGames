@@ -11,7 +11,7 @@ var evaluate_time_module = GameModule.new("Evaluate Time", "res://Scenes/Games/T
 var stack_tower_module = GameModule.new("Stack Tower", "res://Scenes/Games/StackTower/StackTower.tscn", ControlerType.REFLEX)
 
 var scores = {}
-var all_games = [car_module, reflex_circle_module, evaluate_time_module, stack_tower_module]
+var all_games = [reflex_circle_module, car_module, evaluate_time_module, stack_tower_module]
 var game_queue = []
 
 func _ready():
