@@ -6,7 +6,7 @@
 - [x] Racing
 - [x] Timer
 - [ ] Tanks
-- [ ] Spaceships
+- [ ] Spaceships Takeout
 - [x] Stack Tower
 - [x] Reflex Circle
 - [ ] Sprint
@@ -17,6 +17,8 @@
 - [ ] Evaluate the count
 - [ ] Snap Crocodile
 - [ ] Reflex Grab
+- [ ] Space shooter
+- [ ] Collect Comets
 
 ## TO-DO
 - Let multiple people win
