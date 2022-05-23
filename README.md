@@ -1,4 +1,7 @@
 # PartyGames
+## Possible Game Names
+- "Please *don't* kill your friends."
+
 ## Mini-Games
 - [x] Racing
 - [x] Timer
