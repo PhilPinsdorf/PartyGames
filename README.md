@@ -9,6 +9,11 @@
 - [ ] Sprint
 - [ ] Hot Potato
 - [ ] Hidden in Plain Sight
+- [ ] Pong
+- [ ] Flappy Bird
+- [ ] Evaluate the count
+- [ ] Snap Crocodile
+- [ ] Reflex Grab
 
 ## TO-DO
 - Let multiple people win

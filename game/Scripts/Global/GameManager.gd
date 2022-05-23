@@ -3,7 +3,7 @@ extends Node
 enum GameState {LOBBY, INGAME, ENDED}
 enum ControlerType {RACING = PacketManager.Packet.CHANGE_TO_DRIVING, REFLEX = PacketManager.Packet.CHANGE_TO_REFLEX}
 
-const games_to_play = 3
+const games_to_play = 4
 
 var car_module = GameModule.new("Racing", "res://Scenes/Games/Racing/Racing.tscn", ControlerType.RACING)
 var reflex_circle_module = GameModule.new("Reflex Circle", "res://Scenes/Games/ReflexCircle/ReflexCircle.tscn", ControlerType.REFLEX)
